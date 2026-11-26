@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <defs>
+    <linearGradient id="rr-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="55%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#9A3412"/>
+    </linearGradient>
+    <linearGradient id="rr-leaf" x1="18" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <!-- Emblem -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#rr-grad)"/>
+  <rect x="7" y="7" width="50" height="50" rx="13" stroke="#FDE68A" stroke-opacity="0.35" stroke-width="1.5"/>
+  <!-- Stylized Spice Leaf / Flame R -->
+  <path d="M22 44V20h12.5c5.2 0 8.5 2.8 8.5 7.4 0 3.6-2.1 6-5.6 6.9L43.5 44h-5.8l-5.3-8.8h-5.2V44H22zm5.2-13.2h6.8c2.4 0 3.8-1.2 3.8-3.3s-1.4-3.2-3.8-3.2h-6.8v6.5z" fill="#FFFBEB"/>
+  <path d="M44 15c2.2 2.5 2.6 6.2.6 8.5-2.3-.2-5.4-1.8-6.4-4.7 1.7-1.9 3.6-3.1 5.8-3.8z" fill="url(#rr-leaf)"/>
+  <!-- Brand Text -->
+  <text x="72" y="29" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" fill="#7C2D12" letter-spacing="-0.3">RasaRaya</text>
+  <text x="73" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" fill="#B45309" letter-spacing="2.4">NUSANTARA</text>
+  <text x="73" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="600" fill="#78716C" letter-spacing="0.8">PT RASARAYA NUSANTARA</text>
+</svg>
