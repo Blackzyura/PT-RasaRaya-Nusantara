@@ -71,11 +71,13 @@
 
                 <div class="flex flex-wrap gap-3 pt-4">
                     @auth
-                        <a href="https://wa.me/6281234567890?text={{ urlencode('Halo PT RasaRaya Nusantara, saya ' . auth()->user()->name . ' ingin memesan ' . $product->name . ' (' . $product->formatted_price . ').') }}"
-                           target="_blank" rel="noopener"
-                           class="flex-1 sm:flex-none text-center px-6 py-3 rounded-xl bg-amber-700 text-white font-bold text-sm hover:bg-amber-800 transition shadow">
-                            Pesan via WhatsApp
-                        </a>
+                        @if(! auth()->user()->isAdmin())
+                            <a href="https://wa.me/6281234567890?text={{ urlencode('Halo PT RasaRaya Nusantara, saya ' . auth()->user()->name . ' ingin memesan ' . $product->name . ' (' . $product->formatted_price . ').') }}"
+                               target="_blank" rel="noopener"
+                               class="flex-1 sm:flex-none text-center px-6 py-3 rounded-xl bg-amber-700 text-white font-bold text-sm hover:bg-amber-800 transition shadow">
+                                Pesan via WhatsApp
+                            </a>
+                        @endif
                     @else
                         <a href="{{ route('login') }}"
                            class="flex-1 sm:flex-none text-center px-6 py-3 rounded-xl bg-amber-700 text-white font-bold text-sm hover:bg-amber-800 transition shadow">

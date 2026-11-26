@@ -60,6 +60,13 @@ class UtsUmkmTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Pesan via WhatsApp')
             ->assertSee('wa.me/6281234567890');
+
+        $admin = User::where('role', 'admin')->firstOrFail();
+        $this->actingAs($admin)
+            ->get(route('products.show', $product->slug))
+            ->assertStatus(200)
+            ->assertDontSee('Pesan via WhatsApp')
+            ->assertDontSee('wa.me/6281234567890');
     }
 
     public function test_admin_routes_require_login_and_login_logout_flow_works(): void
@@ -130,10 +137,11 @@ class UtsUmkmTest extends TestCase
         ]);
         $invalidResponse->assertSessionHasErrors(['category_id', 'name', 'price', 'stock', 'unit', 'description', 'image']);
 
-        // Test valid product creation with image upload (using real JPG fixture so GD is not required)
-        $sourceImage = storage_path('app/public/products/sambal-roa-manado.jpg');
+        // Test valid product creation with image upload (self-contained 1x1 JPEG so GD/external files are not required)
         $tempImage = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'test-sambal.jpg';
-        copy($sourceImage, $tempImage);
+        file_put_contents($tempImage, base64_decode(
+            '/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA='
+        ));
         $file = new UploadedFile($tempImage, 'sambal-baru.jpg', 'image/jpeg', null, true);
 
         $validResponse = $this->actingAs($admin)->post(route('admin.products.store'), [
